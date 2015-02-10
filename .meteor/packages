@@ -5,9 +5,9 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
 insecure
 accounts-ui
 accounts-base
 accounts-password
 force-ssl
+clinical:hipaa-audit-log

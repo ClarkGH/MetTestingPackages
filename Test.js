@@ -21,3 +21,18 @@ if (Meteor.isServer) {
     // code to run on server at startup
   });
 }
+
+Template.samplePage.events({
+  'click #saveButton': function (evt, tmpl) {
+      MyCollection.update({_id: this._id},{$set:{
+        stared: true
+      }}, function(error, result){
+        if(error){
+          HipaaLogger.logEvent("error", Meteor.userId(), Meteor.user().profile.name, "Forms", null, error);
+        }
+        if(result){
+          HipaaLogger.logEvent("create", Meteor.userId(), Meteor.user().profile.name, "Forms", self._id, null);
+        }
+      });
+  }
+});
