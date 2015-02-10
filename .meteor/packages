@@ -8,3 +8,6 @@ meteor-platform
 autopublish
 insecure
 accounts-ui
+accounts-base
+accounts-password
+force-ssl
