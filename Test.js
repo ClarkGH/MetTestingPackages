@@ -9,11 +9,24 @@ if (Meteor.isClient) {
   });
 
   Template.hello.events({
-    'click button': function () {
+    'click #incrementButton': function () {
       // increment the counter when button is clicked
       Session.set('counter', Session.get('counter') + 1);
+    },
+    'click #saveButton': function (evt, tmpl) {
+        MyCollection.update({_id: this._id},{$set:{
+          stared: true
+        }}, function(error, result){
+        if(error){
+          HipaaLogger.logEvent("error", Meteor.userId(), Meteor.user().profile.name, "Forms", null, error);
+        }
+        if(result){
+          HipaaLogger.logEvent("create", Meteor.userId(), Meteor.user().profile.name, "Forms", self._id, null);
+        }
+      });
     }
   });
+
 }
 
 if (Meteor.isServer) {
@@ -22,17 +35,3 @@ if (Meteor.isServer) {
   });
 }
 
-Template.samplePage.events({
-  'click #saveButton': function (evt, tmpl) {
-      MyCollection.update({_id: this._id},{$set:{
-        stared: true
-      }}, function(error, result){
-        if(error){
-          HipaaLogger.logEvent("error", Meteor.userId(), Meteor.user().profile.name, "Forms", null, error);
-        }
-        if(result){
-          HipaaLogger.logEvent("create", Meteor.userId(), Meteor.user().profile.name, "Forms", self._id, null);
-        }
-      });
-  }
-});
