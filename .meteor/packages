@@ -10,6 +10,6 @@ accounts-ui
 accounts-base
 accounts-password
 force-ssl
-autopublish
 jeffpatzer:hipaa-audit-log
 iron:router
+alanning:roles
