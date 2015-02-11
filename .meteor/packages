@@ -10,6 +10,4 @@ accounts-ui
 accounts-base
 accounts-password
 force-ssl
-jeffpatzer:hipaa-audit-log
 iron:router
-alanning:roles
