@@ -10,5 +10,4 @@ accounts-ui
 accounts-base
 accounts-password
 force-ssl
-clinical:hipaa-audit-log
 iron:router
