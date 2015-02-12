@@ -9,5 +9,5 @@ insecure
 accounts-ui
 accounts-base
 accounts-password
-force-ssl
-iron:router
+alanning:roles
+coffeescript
