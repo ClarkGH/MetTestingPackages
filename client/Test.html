@@ -5,10 +5,17 @@
 <body>
   <h1>Welcome to Meteor!</h1>
 
-  {{> hello}}
+  {{> loginButtons}}
+  {{#if isInRole 'admin'}}
+    {{> ifAdmin}}
+  {{/if}}
 </body>
 
 <template name="hello">
   <button>Click Me</button>
   <p>{{counter}}</p>
+</template>
+
+<template name="ifAdmin">
+  <p> Only admins will be able to see this</p>
 </template>
